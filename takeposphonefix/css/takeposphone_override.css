@@ -304,7 +304,7 @@ button.phonebutton:active {
 	color: #fff;
 }
 
-/* ===== Blue action buttons ===== */
+/* ===== Action buttons (phoneblue class, styled gray) ===== */
 
 .publicphonebutton2.phoneblue {
 	background-color: #555 !important;
