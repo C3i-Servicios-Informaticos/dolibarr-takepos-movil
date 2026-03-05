@@ -15,7 +15,7 @@ if (empty($user->rights->takepos->run)) {
 
 $terminal = (int) $_SESSION['takeposterminal'];
 
-// Single query: fetch all places with occupation status via LEFT JOIN
+// Single query: fetch all places with occupation status via correlated subquery
 $sql = "SELECT t.rowid, t.label,";
 $sql .= " (SELECT COUNT(fd.rowid) FROM ".MAIN_DB_PREFIX."facturedet fd";
 $sql .= " INNER JOIN ".MAIN_DB_PREFIX."facture f ON fd.fk_facture = f.rowid";

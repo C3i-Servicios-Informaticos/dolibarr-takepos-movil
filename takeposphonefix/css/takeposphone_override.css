@@ -8,12 +8,14 @@
 html:has(.phonebuttonsrow) {
 	padding: 0 !important;
 	overflow-x: hidden !important;
+	overscroll-behavior: none;
 }
 
 body:has(.phonebuttonsrow) {
 	background-color: #f2f2f2 !important;
 	padding: 3px !important;
 	overflow-x: hidden !important;
+	overscroll-behavior: none;
 }
 
 body:has(.phonebuttonsrow) * {
@@ -67,7 +69,7 @@ button.phonebutton:active {
 /* ===== Invoice area ===== */
 
 .phonerow2 {
-	flex: 0 1 35%;
+	flex: 0 1 48%;
 	min-height: 0;
 	overflow-y: auto;
 	height: auto;
@@ -82,7 +84,7 @@ button.phonebutton:active {
 /* ===== Categories / Products area ===== */
 
 .phonerow1 {
-	flex: 1 1 60%;
+	flex: 1 1 50%;
 	min-height: 0;
 	overflow-y: auto;
 	height: auto;
@@ -134,7 +136,8 @@ button.phonebutton:active {
 }
 
 #phonediv2 tr.posinvoiceline.order {
-	border-left: 2px solid #d4a84a;
+	border-left: 4px solid #27ae60;
+	background: #c8e6c9;
 }
 
 #phonediv2 tr.posinvoiceline td {
@@ -166,7 +169,7 @@ button.phonebutton:active {
 /* Qty */
 .phoneqty {
 	display: inline-block;
-	min-width: 64px;
+	min-width: 52px;
 	height: 38px;
 	background: #fff;
 	color: #333;
@@ -220,7 +223,7 @@ button.phonebutton:active {
 	border: 1px solid #ddd;
 	border-radius: 6px;
 	margin-bottom: 3px;
-	padding: 10px 12px;
+	padding: 7px 12px;
 	cursor: pointer;
 	transition: background 0.1s;
 	min-height: 46px;
@@ -268,7 +271,26 @@ button.phonebutton:active {
 #phonediv1 tr.liste_titre td,
 #phonediv2 tr.liste_titre td {
 	border: none !important;
-	padding: 6px 8px !important;
+	padding: 10px 8px !important;
+}
+
+/* Back button in product view */
+.phonefix-back {
+	float: right;
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: 600;
+	color: #fff;
+	background: #555;
+	border-radius: 4px;
+	padding: 0 8px;
+	line-height: 16px;
+	height: 16px;
+	letter-spacing: 0.03em;
+}
+
+.phonefix-back:active {
+	opacity: 0.6;
 }
 
 /* Hide extra header columns */
@@ -398,6 +420,7 @@ button.publicphonebutton:active {
 .phonerow1,
 .phonerow2 {
 	scrollbar-width: none;
+	overscroll-behavior: contain;
 }
 
 .phonerow1::-webkit-scrollbar,
