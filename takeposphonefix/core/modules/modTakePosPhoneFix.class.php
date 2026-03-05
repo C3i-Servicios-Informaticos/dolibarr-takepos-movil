@@ -28,10 +28,7 @@ class modTakePosPhoneFix extends DolibarrModules
 
 		$this->module_parts = array(
 			'css' => array('/takeposphonefix/css/takeposphone_override.css'),
-			'hooks' => array(
-				'data' => array('takeposinvoice'),
-				'entity' => '0',
-			),
+			'js' => array('/takeposphonefix/js/takeposphone.js'),
 		);
 
 		$this->hidden = false;
