@@ -20,7 +20,7 @@ $sql = "SELECT t.rowid, t.label,";
 $sql .= " (SELECT COUNT(fd.rowid) FROM ".MAIN_DB_PREFIX."facturedet fd";
 $sql .= " INNER JOIN ".MAIN_DB_PREFIX."facture f ON fd.fk_facture = f.rowid";
 $sql .= " WHERE f.ref = CONCAT('(PROV-POS".$db->escape($terminal)."-', t.rowid, ')')) AS line_count";
-$sql .= " FROM ".MAIN_DB_PREFIX."takepos_floor_tables t ORDER BY t.label";
+$sql .= " FROM ".MAIN_DB_PREFIX."takepos_floor_tables t ORDER BY CAST(t.label AS UNSIGNED), t.label";
 $resql = $db->query($sql);
 
 if (!$resql) {

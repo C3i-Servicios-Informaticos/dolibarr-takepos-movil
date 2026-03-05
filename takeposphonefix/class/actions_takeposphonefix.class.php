@@ -21,6 +21,15 @@ class ActionsTakeposphonefix
 					window.LoadPlacesList = function() {
 						$("#phonediv1").load("'.dol_escape_js($url).'");
 					};
+					var _origOrder = window.TakeposPrintingOrder;
+					window.TakeposPrintingOrder = function() {
+						var el = document.activeElement;
+						if (el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA")) {
+							el.blur();
+							return;
+						}
+						_origOrder.apply(this, arguments);
+					};
 				}
 			</script>';
 		}

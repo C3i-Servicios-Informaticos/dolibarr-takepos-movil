@@ -3,20 +3,20 @@
  * Quiet, monochrome, dense. Color only where it carries meaning.
  */
 
-/* ===== Page ===== */
+/* ===== Page (phone only) ===== */
 
-html {
+html:has(.phonebuttonsrow) {
 	padding: 0 !important;
 	overflow-x: hidden !important;
 }
 
-body {
+body:has(.phonebuttonsrow) {
 	background-color: #f2f2f2 !important;
 	padding: 3px !important;
 	overflow-x: hidden !important;
 }
 
-* {
+body:has(.phonebuttonsrow) * {
 	-webkit-tap-highlight-color: transparent;
 }
 
@@ -71,10 +71,8 @@ button.phonebutton:active {
 	min-height: 0;
 	overflow-y: auto;
 	height: auto;
-	background: #fff;
 	border-radius: 6px;
 	margin: 0;
-	border: 1px solid #ddd;
 }
 
 .phonediv2 {
@@ -168,7 +166,7 @@ button.phonebutton:active {
 /* Qty */
 .phoneqty {
 	display: inline-block;
-	min-width: 36px;
+	min-width: 64px;
 	height: 38px;
 	background: #fff;
 	color: #333;
@@ -257,22 +255,38 @@ button.phonebutton:active {
 	white-space: nowrap;
 }
 
-/* ===== Header row ===== */
+/* ===== Header rows (Lugar/Piso and Etiqueta/Categoría) ===== */
 
-#phonediv2 tr:first-child:not(.posinvoiceline) {
-	font-size: 10px;
-	color: #aaa;
+#phonediv1 tr.liste_titre,
+#phonediv2 tr.liste_titre {
+	font-size: 12px;
+	color: #333;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 }
 
-#phonediv2 tr:first-child:not(.posinvoiceline) td {
+#phonediv1 tr.liste_titre td,
+#phonediv2 tr.liste_titre td {
 	border: none !important;
-	padding: 2px 6px !important;
+	padding: 6px 8px !important;
 }
 
-/* Hide CANT. qty column header */
-#phonediv2 tr:first-child:not(.posinvoiceline) td.linecolqty {
+/* Hide extra header columns */
+#phonediv2 tr.liste_titre td.linecolqty {
+	display: none !important;
+}
+
+#phonediv1 tr.liste_titre td:not(.linecoldescription) {
+	display: none !important;
+}
+
+/* Hide empty/extra rows */
+#phonediv1 tr:not(.posinvoiceline):not(.liste_titre),
+#phonediv2 tr:not(.posinvoiceline):not(.liste_titre) {
+	display: none !important;
+}
+
+#phonediv1 .opacitymedium {
 	display: none !important;
 }
 
