@@ -15,27 +15,29 @@ if (empty($user->rights->takepos->run)) {
 
 $terminal = (int) $_SESSION['takeposterminal'];
 
-// Single query: fetch all places with occupation status via correlated subquery
+// Single query: fetch all places with occupation status via LEFT JOIN
 $sql = "SELECT t.rowid, t.label,";
 $sql .= " (SELECT COUNT(fd.rowid) FROM ".MAIN_DB_PREFIX."facturedet fd";
 $sql .= " INNER JOIN ".MAIN_DB_PREFIX."facture f ON fd.fk_facture = f.rowid";
-$sql .= " WHERE f.ref = CONCAT('(PROV-POS".$terminal."-', t.rowid, ')')) AS line_count";
+$sql .= " WHERE f.ref = CONCAT('(PROV-POS".$db->escape($terminal)."-', t.rowid, ')')) AS line_count";
 $sql .= " FROM ".MAIN_DB_PREFIX."takepos_floor_tables t ORDER BY t.label";
 $resql = $db->query($sql);
 
 if (!$resql) {
-	print 'Error: '.$db->lasterror();
+	print 'Error';
 	$db->close();
-	exit;
+	return;
 }
 
 print '<div class="places-grid">';
 while ($row = $db->fetch_array($resql)) {
 	$occupied = ($row['line_count'] > 0) ? ' place-occupied' : '';
 	$labelHtml = htmlspecialchars($row['label'], ENT_QUOTES, 'UTF-8');
-	$labelJs = json_encode($row['label']);
+	$labelJs = htmlspecialchars(addslashes($row['label']), ENT_QUOTES, 'UTF-8');
 
-	print '<div class="place-tile'.$occupied.'" onclick="LoadPlace('.$labelJs.')">'.$labelHtml.'</div>'."\n";
+	print '<div class="place-tile'.$occupied.'" onclick="LoadPlace(\''.$labelJs.'\')">';
+	print '<span class="place-label">'.$labelHtml.'</span>';
+	print '</div>'."\n";
 }
 print '</div>';
 
