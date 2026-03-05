@@ -41,4 +41,5 @@ while ($row = $db->fetch_array($resql)) {
 }
 print '</div>';
 
+$db->free($resql);
 $db->close();

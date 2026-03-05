@@ -56,8 +56,6 @@ class modTakePosPhoneFix extends DolibarrModules
 
 	public function init($options = '')
 	{
-		$result = $this->_load_tables('/takeposphonefix/sql/');
-		if ($result < 0) return -1;
 		return $this->_init(array(), $options);
 	}
 
