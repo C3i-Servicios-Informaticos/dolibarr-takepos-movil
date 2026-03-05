@@ -1,0 +1,63 @@
+/*
+ * TakePOS Phone Fix - Flex layout override
+ */
+
+.container {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.phonebuttonsrow {
+	flex: 0 0 auto;
+	min-height: 40px;
+	height: auto;
+}
+
+.phonerow2 {
+	flex: 0 1 35%;
+	min-height: 0;
+	overflow-y: auto;
+	height: auto;
+}
+
+.phonerow1 {
+	flex: 1 1 60%;
+	min-height: 0;
+	overflow-y: auto;
+	height: auto;
+}
+
+/* Places grid */
+.places-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 10px;
+	justify-content: center;
+}
+
+.place-tile {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	height: 80px;
+	background-color: #f0f0f0;
+	border: 2px solid #ccc;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 22px;
+	font-weight: bold;
+	color: #333;
+}
+
+.place-tile:active {
+	transform: scale(0.95);
+}
+
+.place-tile.place-occupied {
+	background-color: #dc3545;
+	border-color: #c82333;
+	color: #fff;
+}
