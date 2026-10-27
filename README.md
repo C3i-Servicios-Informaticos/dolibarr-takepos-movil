@@ -1,4 +1,4 @@
-# caliche_tpv
+# dolibarr-takepos-movil
 
 Módulo de Dolibarr que rediseña la interfaz del TPV móvil (**TakePOS**) para mejorar la usabilidad en dispositivos pequeños: layout compacto, selección de mesa mejorada, cabeceras limpias y correcciones de comportamiento en AJAX.
 
