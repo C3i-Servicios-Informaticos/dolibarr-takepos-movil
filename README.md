@@ -8,6 +8,10 @@ Módulo de Dolibarr que rediseña la interfaz del TPV móvil (**TakePOS**) para 
 ![Dolibarr](https://img.shields.io/badge/Dolibarr-ERP-informational)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
 
+## Compatibilidad
+
+Probado con Dolibarr 16 (ver `docker-compose.yml`).
+
 ## Qué hace
 
 - Override CSS de la página de teléfono de TakePOS
@@ -34,3 +38,12 @@ takeposphonefix/
   css/          # Overrides CSS para la vista de teléfono
 docker-compose.yml
 ```
+
+## Licencia
+
+GPL-3.0-or-later. Ver [LICENSE](LICENSE).
+
+## Autor
+
+Javier Muñoz Solano — C3i Servicios Informáticos, C.B.
+
